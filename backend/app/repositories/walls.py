@@ -16,3 +16,16 @@ def get_wall(wid: int):
         return dict(row) if row else None
     finally:
         conn.close()
+
+
+def update_wall(wid: int, fields: dict):
+    allowed = {k: v for k, v in fields.items() if k in ("name", "perimeter", "height", "note")}
+    if not allowed:
+        return
+    cols = ", ".join(f"{k}=?" for k in allowed)
+    conn = connect()
+    try:
+        conn.execute(f"UPDATE walls SET {cols} WHERE id=?", (*allowed.values(), wid))
+        conn.commit()
+    finally:
+        conn.close()

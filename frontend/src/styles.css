@@ -6,4 +6,9 @@ body { margin: 0; font-family: Georgia, serif; background: #faf3e8; }
 .strip-bar { display: flex; gap: 4px; align-items: flex-end; flex-wrap: wrap; }
 .strip { width: 14px; background: linear-gradient(#c49a6c, #8b5a2b); border-radius: 2px 2px 0 0; }
 .roll-chip { display: inline-block; margin: 0.25rem; padding: 0.5rem; background: #fff; border: 1px dashed #6b4226; }
+.floor-picker { margin: 0.5rem 0; }
+.floor-row { background: #fff; border: 1px dashed #6b4226; padding: 0.5rem; margin-bottom: 0.5rem; }
+.floor-name { width: 4rem; margin-right: 0.5rem; }
+.wall-check { margin-right: 0.75rem; white-space: nowrap; }
+.floor-detail { margin: 0.25rem 0 0.5rem 1rem; }
 .warn { color: #a00; }
