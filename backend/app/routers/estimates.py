@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Query
-from app.schemas.estimate import EstimateRequest
-from app.services import estimate_service
+from app.schemas.estimate import EstimateRequest, FloorStackRequest
+from app.services import estimate_service, stack_service
 
 router = APIRouter()
 
@@ -13,3 +13,8 @@ def estimate_get(wall_id: int = Query(...), roll_id: int = Query(...), save: boo
 @router.post("/estimate")
 def estimate_post(body: EstimateRequest):
     return estimate_service.run_estimate(body.wall_id, body.roll_id, body.save, body.note)
+
+
+@router.post("/estimate/stack")
+def estimate_stack(body: FloorStackRequest):
+    return stack_service.run_floor_stack(body.roll_id, body.floors, body.save, body.note)
